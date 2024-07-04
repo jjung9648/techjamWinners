@@ -75,8 +75,31 @@ def getVectorCount()->int:
         total_vectors = index.describe_index_stats()['total_vector_count']
         return total_vectors
 
+def search_vector(query:str,metadata:dict,top_k:int=10)->list:
+    """
+    A function that searches for vectors in the index that match the given query and metadata.
+    
+    Parameters:
+    - query (str): The query to search for.
+    - metadata (dict): The metadata filters to search for.
+    
+    Returns:
+    - list: A list of vectors that match the query and metadata.
+    """
+    index = pc.Index(index_name)
+    query_vector = embeddings_model.embed_query(query)
+    res = index.query(
+        vector=query_vector,
+        filter=metadata,
+        top_k=top_k,
+        include_values=False,
+        include_metadata=True
+    )
+    return res['matches']
+
 if __name__ == "__main__":
     initialize()
-    print(getVectorCount())
-    insert_data(15,"test","test","test")
+    #print(getVectorCount())
+    #insert_data(15,"test","test","test")
+    #print(search_vector("test",{}))
     print(getVectorCount())
