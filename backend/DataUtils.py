@@ -25,7 +25,7 @@ def initialize():
             ) 
         ) 
     
-def insert_data(price:float,category:str,location:str,description:str)->bool:
+def insert_data(name:str,price:float,category:str,location:str,description:str)->bool:
     """
     A function that inserts data with the given parameters and returns a boolean.
     
@@ -40,6 +40,7 @@ def insert_data(price:float,category:str,location:str,description:str)->bool:
     """
     global total_vectors
     metadata = {
+        "name": name,
         "price": price,
         "category": category,
         "location": location,

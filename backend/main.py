@@ -17,6 +17,7 @@ async def add_item(item: ItemCreate):
         success = await asyncio.get_event_loop().run_in_executor(
             None,
             insert_data,
+            item.name,
             item.price,
             item.category,
             item.location,
@@ -47,7 +48,7 @@ async def get_items(query: str = Query(...),
 
         transformed_results = [
             ItemSearchResult(
-                id=result['id'],
+                id=result['id'],                
                 metadata=result['metadata'],
                 score=result['score'],
             ) for result in results
