@@ -25,7 +25,7 @@ def initialize():
             ) 
         ) 
     
-def insert_data(price:float,category:str,location:str,description:str)->bool:
+def insert_data(name:str,price:float,category:str,location:str,description:str)->bool:
     """
     A function that inserts data with the given parameters and returns a boolean.
     
@@ -40,6 +40,7 @@ def insert_data(price:float,category:str,location:str,description:str)->bool:
     """
     global total_vectors
     metadata = {
+        "name": name,
         "price": price,
         "category": category,
         "location": location,
@@ -100,6 +101,6 @@ def search_vector(query:str,metadata:dict,top_k:int=10)->list:
 if __name__ == "__main__":
     initialize()
     #print(getVectorCount())
-    #insert_data(15,"test","test","test")
-    #print(search_vector("test",{}))
-    print(getVectorCount())
+    #insert_data("Backpack",15,"Bags","NY","tesDurable Backpack with multiple compartments, ideal for school, work, and travel. Comfortable straps and ample storage.")
+    print(search_vector("durable bag",{}))
+    #print(getVectorCount())
