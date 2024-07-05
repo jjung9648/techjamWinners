@@ -101,6 +101,6 @@ def search_vector(query:str,metadata:dict,top_k:int=10)->list:
 if __name__ == "__main__":
     initialize()
     #print(getVectorCount())
-    #insert_data("Backpack",15,"Bag","NY","tesDurable Backpack with multiple compartments, ideal for school, work, and travel. Comfortable straps and ample storage.")
-    #print(search_vector("test",{}))
+    #insert_data("Backpack",15,"Bags","NY","tesDurable Backpack with multiple compartments, ideal for school, work, and travel. Comfortable straps and ample storage.")
+    print(search_vector("durable bag",{}))
     #print(getVectorCount())

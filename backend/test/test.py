@@ -2,8 +2,8 @@ import requests
 
 url = "http://localhost:8000/items/"
 params = {
-    "query": "test",
-    "metadata": '{"category":"test","location":"test"}',
+    "query": "durable bag",
+    "metadata": '{"category":{"$eq":"Bags"},"location":{"$eq":"NY"}}',
     "top_k": 10
 }
 response = requests.get(url, params=params)
