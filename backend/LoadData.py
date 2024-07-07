@@ -58,10 +58,10 @@ def read_csv(file_path):
         rows.append(row_dict)
 
     return rows
-
-index = pc.Index(index_name)
-for file in files:
-    data_list = read_csv(file)
-    data_list = list(map(mapRows,data_list))
-    index.upsert(vectors=data_list)
-    print("File {0} loaded".format(file))
+if __name__ == "__main__":
+    index = pc.Index(index_name)
+    for file in files:
+        data_list = read_csv(file)
+        data_list = list(map(mapRows,data_list))
+        index.upsert(vectors=data_list)
+        print("File {0} loaded".format(file))
